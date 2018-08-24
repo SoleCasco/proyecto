@@ -1,62 +1,69 @@
 from django.db import models
 
 
-class persona(models.Model):
+class Propietario(models.Model):
 
 	nombre=models.CharField(max_length=50, blank=True)
+	tipo_doc=models.CharField(max_length=5)
 	cuit_cuil=models.IntegerField()
 	domicilio=models.CharField(max_length=50)
 
 	def __str__(self):
 		
-		return self.nombre + self.domicilio
+		return self.nombre + self.domicilio+ self.tipo_doc
 
-class origen(models.Model):
-	"""docstring for origen"""
+class Origen(models.Model):
 	nombre_origen=models.CharField(max_length=10)
 	def __str__(self):
 
 		return self.nombre_origen
 
-class fabrica(models.Model):
+class Fabrica(models.Model):
 	cod_fabrica=models.IntegerField(max_length=4)
 	id_origen=models.ForeignKey(origen,null=True, blank=True)
 			
 			
 						
-class tipo(models.Model):
+class Tipo(models.Model):
 	tv=models.CharField(max_length=50)
 	id_fabrica=models.ForeignKey(fabrica)
 	def __str__(self):
 		return self.nombre_tipo
 
-class marca(models.Model):
+class Marca(models.Model):
+
 	nombre_marca=models.CharField(max_length=100)
 	id_tipo=models.ForeignKey(tipo)
 	def __str__(self):
 		return self.nombre_marca
 
-class modelo(models.Model):
+class Modelo(models.Model):
 	nombre_modelo=models.CharField(max_length50)
 	id_marca=models.ForeignKey(marca)
 		
 
-class descripcion(models.Model):
+class Descripcion(models.Model):
 	
 	desc=models.CharField(max_length=50)
-	cod_modelo=models.ForeignKey(modelo)	
+	id_modelo=models.ForeignKey(modelo)	
 
 		
-class anio(models.Model):
+class Anio(models.Model):
 	
 	anio=models.DateField()
-	id_descripcion=
-	
+	id_descripcion=models.ForeignKey(descripcion)
+	def __str__(self):
+		return self.anio + self.id_descripcion
+
+class Valor(self):
+	id_anio=models.ForeignKey(Anio)
+	precio=models.FloatField()
 	def __str__(self):
 
-		return self.origen + self.cod_marca + self.cod_modelo + self.tv + self.marca+ self.descripcion+ self.tipo
+		return self.precio+ self.id_anio
 	
-class vehiculo(models.Model):
+	
+class Vehiculo(models.Model):
 	
 	dominio=models.CharField(max_length=8)
 	fechaalta=models.DateField()
@@ -67,7 +74,7 @@ class vehiculo(models.Model):
 
 		return self.dominio		
 
-class impuesto(models.Model):
+class Impuesto(models.Model):
 	id_vehiculo=models.ForeignKey(vehiculo, on_delete=models.CASCADE)
 	monto=models.FloatField()
 	fecha_inicio=models.DateField()
