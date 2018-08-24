@@ -2,64 +2,41 @@ from django.db import models
 
 # Create your models here.
 class valuacion(models.Model):
-	origen=models.charField(max_length=1)
-	cod_fabrica=models.integerField(null=true, blank=True)
-	cod_marca=models.charField(max_length=5)
-	cod_tipo=models.integerField()
-	cod_modelo=models.integerField()
-	tv=models.charField(max_length=1)
-	marca=models.charField(max_length=50)
-	descripcion=models.charField(max_length=100)
-	tipo=models.charField(max_length=100)
-	val_okm=models.IntegerField()
-	val_2016=models.IntegerField()
-	val_2015=models.IntegerField()
-	val_2014=models.IntegerField()
-	val_2013=models.IntegerField()
-	val_2012=models.IntegerField()
-	val_2011=models.IntegerField()
-	val_2010=models.IntegerField()
-	val_2009=models.IntegerField()
-	val_2008=models.IntegerField()
-	val_2007=models.IntegerField()
-	val_2006=models.IntegerField()
-	val_2005=models.IntegerField()
-	val_2004=models.IntegerField()
-	val_2003=models.IntegerField()
-	val_2002=models.IntegerField()
-	val_2001=models.IntegerField()
-	val_2000=models.IntegerField()
-	val_1999=models.IntegerField()
-	val_1998=models.IntegerField()
-	val_1997=models.IntegerField()
-	val_1996=models.IntegerField()
-	val_1995=models.IntegerField()
-	val_1994=models.IntegerField()
-	val_1993=models.IntegerField()
-	def__str__(self):
+	origen=models.CharField(max_length=50, blank=True)
+	cod_fabrica=models.IntegerField(null=True, blank=True)
+	cod_marca=models.CharField(max_length=5, blank=True)
+	cod_tipo=models.IntegerField(null=True, blank=True)
+	cod_modelo=models.CharField(max_length=50,null=True, blank=True)
+	tv=models.CharField(max_length=3, blank=True)
+	marca=models.CharField(max_length=50, blank=True)
+	descripcion=models.CharField(max_length=100, blank=True)
+	tipo=models.CharField(max_length=100, blank=True)
+	val_okm=models.IntegerField( null=True, blank=True)
+	val_1=models.IntegerField(null=True, blank=True)
+	val_2=models.IntegerField( null=True, blank=True)
+	val_3=models.IntegerField(null=True, blank=True)
+	val_4=models.IntegerField(null=True, blank=True)
+	val_5=models.IntegerField(null=True, blank=True)
+	val_6=models.IntegerField(null=True, blank=True)
+	val_7=models.IntegerField(null=True, blank=True)
+	val_8=models.IntegerField(null=True, blank=True)
+	val_9=models.IntegerField(null=True, blank=True)
+	val_10=models.IntegerField(null=True, blank=True)
+	val_11=models.IntegerField(null=True, blank=True)
+	val_12=models.IntegerField(null=True, blank=True)
+	val_13=models.IntegerField(null=True, blank=True)
+	val_14=models.IntegerField(null=True, blank=True)
+	val_15=models.IntegerField(null=True, blank=True)
+	val_16=models.IntegerField(null=True, blank=True)
+	val_17=models.IntegerField(null=True, blank=True)
+	val_18=models.IntegerField(null=True, blank=True)
+	val_19=models.IntegerField(null=True, blank=True)
+	val_20=models.IntegerField(null=True, blank=True)
+	val_21=models.IntegerField(null=True, blank=True)
+	val_22=models.IntegerField(null=True, blank=True)
+	val_23=models.IntegerField(null=True, blank=True)
+	val_24=models.IntegerField(null=True, blank=True)
+	def __str__(self):
+		
 
-		return self.origen + self.cod_marca + self.tv + self.marca + self.descripcion + self.tipo +
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-{código de marca, tipo y modelo
-origen (nacional o importado)
-tipo de fabricante (automotor, motovehículos, M.A.V.I.)
-código de fabrica
-código de marca
-código de tipo
-código de modelo
-descripción de marca
-descripción de modelo
-descripción de tipo}
+		return self.origen + self.cod_marca + self.tv + self.marca + self.descripcion + self.tipo

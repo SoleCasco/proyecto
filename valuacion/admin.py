@@ -1,5 +1,5 @@
 from django.contrib import admin
+# Register your models here.
 from valuacion.models import valuacion
 
-# Register your models here.
-Admin.site.register(models.valuacion)
+admin.site.register(valuacion)
