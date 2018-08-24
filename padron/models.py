@@ -1,8 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
-
 class persona(models.Model):
 
 	nombre=models.CharField(max_length=50, blank=True)
@@ -23,11 +21,10 @@ class origen(models.Model):
 class fabrica(models.Model):
 	cod_fabrica=models.IntegerField(max_length=4)
 	id_origen=models.ForeignKey(origen,null=True, blank=True)
-			"""docstring for fabrica"""
+			
 			
 						
 class tipo(models.Model):
-	"""docstring for tipo"""
 	tv=models.CharField(max_length=50)
 	id_fabrica=models.ForeignKey(fabrica)
 	def __str__(self):
@@ -38,6 +35,8 @@ class marca(models.Model):
 	id_tipo=models.ForeignKey(tipo)
 	def __str__(self):
 		return self.nombre_marca
+
+class modelo(models.Model):
 	nombre_modelo=models.CharField(max_length50)
 	id_marca=models.ForeignKey(marca)
 		
